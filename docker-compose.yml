@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  database:
+    image: postgres:15.0
+    container_name: database
+    ports:
+      - 5432:5432
+    volumes:
+      - basic-user-system-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=password
+    networks:
+      - tr-basic-user-system
+volumes:
+  basic-user-system-data:
+networks:
+  tr-basic-user-system:
